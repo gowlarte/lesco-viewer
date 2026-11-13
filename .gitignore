@@ -1,0 +1,17 @@
+# Os panoramas sao pesados: 2-4 MB por ambiente, varios ambientes por obra.
+# Nao versione. Guarde os originais fora do repositorio e reprocesse pelo editor.
+/media/
+
+# Pacote gerado pelo export. Sempre reconstruivel a partir de data/ + media/.
+/dist/
+
+# Conteudo dos tours: e dado, nao codigo. Descomente se quiser versionar as fichas.
+# /data/
+
+# Certificado de desenvolvimento e a senha do PFX. Sao locais e por maquina —
+# regerar e um comando, e versionar chave privada nao se faz.
+/cert/
+
+node_modules/
+.DS_Store
+Thumbs.db

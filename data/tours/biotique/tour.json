@@ -1,0 +1,410 @@
+{
+  "slug": "biotique",
+  "obra": "Biotique",
+  "cidade": "São Paulo",
+  "uf": "SP",
+  "tipo": "residencia",
+  "ano": 2026,
+  "escritorio": "Setin",
+  "linhas": [],
+  "apresentacao": "",
+  "publicado": true,
+  "capaCenaId": "c1",
+  "cenas": [
+    {
+      "id": "c16",
+      "nome": "Hall de entrada",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0.046112772230804434,
+        "pitch": 0.7762713201935924,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h11",
+          "tipo": "navegacao",
+          "yaw": -2.995966269524845,
+          "pitch": -0.18551746900071223,
+          "destinoId": "c13",
+          "direcao": "cima-direita"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c1",
+      "nome": "Entrada Fitness",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h1",
+          "tipo": "navegacao",
+          "yaw": -1.1095747050498075,
+          "pitch": -0.2986804570621625,
+          "destinoId": "c2",
+          "direcao": "esquerda"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c2",
+      "nome": "Corredor",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h2",
+          "tipo": "navegacao",
+          "yaw": 0.08771154050243737,
+          "pitch": -0.08372231795686526,
+          "destinoId": "c3",
+          "direcao": "cima"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c3",
+      "nome": "Corredor Hub",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h3",
+          "tipo": "navegacao",
+          "yaw": 0.6966793360230327,
+          "pitch": -0.4371366814010739,
+          "destinoId": "c15",
+          "direcao": "esquerda"
+        },
+        {
+          "id": "h4",
+          "tipo": "navegacao",
+          "yaw": -0.5667395483797868,
+          "pitch": -0.3339124042324977,
+          "destinoId": null,
+          "direcao": "baixo"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c15",
+      "nome": "Entrada Elevador",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 4.175197744940731,
+        "pitch": -0.09120478104804282,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h6",
+          "tipo": "navegacao",
+          "yaw": 2.946361102691433,
+          "pitch": -0.6826835222678335,
+          "destinoId": "c2",
+          "direcao": "cima"
+        },
+        {
+          "id": "h7",
+          "tipo": "navegacao",
+          "yaw": -2.708229248397427,
+          "pitch": -0.3437363213140942,
+          "destinoId": null,
+          "direcao": "direita"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c4",
+      "nome": "Entrada Fitness principal",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": -5.226830807837064,
+        "pitch": 0.22213635081365227,
+        "fov": 100
+      },
+      "hotspots": [
+        {
+          "id": "h5",
+          "tipo": "navegacao",
+          "yaw": 3.0095585461376206,
+          "pitch": -0.11306163065193577,
+          "destinoId": "c2",
+          "direcao": "cima"
+        },
+        {
+          "id": "h8",
+          "tipo": "navegacao",
+          "yaw": -2.955957367277561,
+          "pitch": -0.2812681941214904,
+          "destinoId": null,
+          "direcao": "cima-direita"
+        },
+        {
+          "id": "h10",
+          "tipo": "navegacao",
+          "yaw": -0.13239376309035789,
+          "pitch": -0.06620284290738575,
+          "destinoId": "c5",
+          "direcao": "direita"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c13",
+      "nome": "Escada",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h9",
+          "tipo": "navegacao",
+          "yaw": -2.9722021188100602,
+          "pitch": 0.23350105687164716,
+          "destinoId": "c3",
+          "direcao": "cima"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c5",
+      "nome": "Lounge Gourmet",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": -0.45924929516015545,
+        "pitch": -0.04277336763874372,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h12",
+          "tipo": "navegacao",
+          "yaw": -3.087023248343564,
+          "pitch": -0.11696165201405329,
+          "destinoId": "c3",
+          "direcao": "cima"
+        },
+        {
+          "id": "h13",
+          "tipo": "navegacao",
+          "yaw": 0.8627295247296146,
+          "pitch": -0.34331064351147456,
+          "destinoId": "c7",
+          "direcao": "cima-direita"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c7",
+      "nome": "Hall Social",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h14",
+          "tipo": "navegacao",
+          "yaw": -3.101478658280108,
+          "pitch": -0.16316546049212405,
+          "destinoId": "c8",
+          "direcao": "cima"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c8",
+      "nome": "Hall Social 2",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": -3.762232086360878,
+        "pitch": -0.010840037091143753,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h15",
+          "tipo": "navegacao",
+          "yaw": 1.7585550829348102,
+          "pitch": -0.16969355287101845,
+          "destinoId": "c7",
+          "direcao": "cima"
+        },
+        {
+          "id": "h16",
+          "tipo": "navegacao",
+          "yaw": -1.5898172558998247,
+          "pitch": -0.14847083332156533,
+          "destinoId": "c9",
+          "direcao": "cima"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c9",
+      "nome": "Brinquedoteca",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": -3.3359876019929016,
+        "pitch": -0.2823016816798999,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h17",
+          "tipo": "navegacao",
+          "yaw": 1.5589728237641094,
+          "pitch": -0.14223114382697405,
+          "destinoId": "c8",
+          "direcao": "cima-esquerda"
+        },
+        {
+          "id": "h18",
+          "tipo": "navegacao",
+          "yaw": -1.7017282991832516,
+          "pitch": -0.2320454670359723,
+          "destinoId": "c10",
+          "direcao": "direita"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c10",
+      "nome": "Corredor 3",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h19",
+          "tipo": "navegacao",
+          "yaw": 1.6942880313763733,
+          "pitch": -0.13862928226627047,
+          "destinoId": "c9",
+          "direcao": "cima-esquerda"
+        },
+        {
+          "id": "h20",
+          "tipo": "navegacao",
+          "yaw": -3.0322824500707792,
+          "pitch": -0.27101748759423283,
+          "destinoId": "c11",
+          "direcao": "cima"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c11",
+      "nome": "Fim",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 1.4388942268807523,
+        "pitch": 0.08979349968393896,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c12",
+      "nome": "Ultimo corredor",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 3.086919445600724,
+        "pitch": 0.33032825301351726,
+        "fov": 100
+      },
+      "hotspots": [
+        {
+          "id": "h21",
+          "tipo": "navegacao",
+          "yaw": 1.6208552977804873,
+          "pitch": -0.24394845783105362,
+          "destinoId": "c10",
+          "direcao": "esquerda"
+        },
+        {
+          "id": "h22",
+          "tipo": "navegacao",
+          "yaw": -1.6923339158671362,
+          "pitch": -0.3895982966240118,
+          "destinoId": "c11",
+          "direcao": "direita"
+        }
+      ],
+      "temMedia": true
+    },
+    {
+      "id": "c14",
+      "nome": "Sala de reunião",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h23",
+          "tipo": "navegacao",
+          "yaw": 1.6973251965423426,
+          "pitch": -0.2668005044503953,
+          "destinoId": "c1",
+          "direcao": "direita"
+        }
+      ],
+      "temMedia": true
+    }
+  ],
+  "criadoEm": "2026-09-01T14:44:58.394Z",
+  "atualizadoEm": "2026-09-02T22:54:49.820Z"
+}

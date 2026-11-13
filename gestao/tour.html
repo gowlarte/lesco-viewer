@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lesco Viewer — editar tour</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app/css/tokens.css">
+<link rel="stylesheet" href="/app/css/base.css">
+<link rel="stylesheet" href="/app/css/panorama.css">
+<link rel="stylesheet" href="/app/css/gestao.css">
+</head>
+<body>
+
+<div class="editor">
+  <header class="editor-topo">
+    <a class="editor-voltar" href="/gestao" data-icone="esquerda">Obras</a>
+    <div class="editor-obra">
+      <div class="eyebrow" id="obraEyebrow">CARREGANDO</div>
+      <b id="obraNome">—</b>
+    </div>
+    <div class="editor-acoes">
+      <span class="sujo" id="estadoSalvo" hidden></span>
+      <label class="switch" title="Publicado entra no acervo público no próximo pacote">
+        <input type="checkbox" id="swPublicado">
+        <span class="trilho"></span>
+        <span class="meta-s" id="rotuloPublicado">Rascunho</span>
+      </label>
+      <button class="btn btn-ghost btn-sm" id="btFicha" data-icone="lapis">Ficha da obra</button>
+      <button class="btn btn-ghost btn-sm" id="btQr" data-icone="pacote" hidden>QR</button>
+      <a class="btn btn-secondary btn-sm" id="btVer" href="#" target="_blank" rel="noopener" data-icone="olho">Ver</a>
+      <button class="btn btn-primary btn-sm" id="btSalvar" data-icone="salvar">Salvar</button>
+    </div>
+  </header>
+  <div class="gradrule"></div>
+
+  <div class="editor-corpo">
+    <!-- ambientes ------------------------------------------------------------ -->
+    <aside class="col-cenas">
+      <div class="col-topo">
+        <div class="eyebrow">AMBIENTES</div>
+        <span class="meta" id="contaCenas"></span>
+      </div>
+      <div class="lista-cenas" id="listaCenas"></div>
+      <div class="fila-upload" id="filaUpload"></div>
+      <div class="manutencao" id="manutencao" hidden></div>
+      <label class="solta" id="solta">
+        <input type="file" id="arquivos" accept="image/jpeg,image/png,image/webp" multiple>
+        <span data-icone="subir" data-ic-tam="22"></span>
+        <b>Subir panoramas</b>
+        <span>Arraste os JPG equirretangulares aqui, ou clique para escolher</span>
+      </label>
+    </aside>
+
+    <!-- palco --------------------------------------------------------------- -->
+    <div class="col-palco palco" id="palco">
+      <canvas id="tela" tabindex="0" aria-label="Panorama do ambiente. Arraste para olhar em volta."></canvas>
+      <div class="camada-hs" id="camadaHs"></div>
+
+      <div class="barra-palco" id="barraPalco" hidden>
+        <button class="bp" id="btAddNav" data-icone="porta">Ponto de passagem</button>
+        <button class="bp" id="btAddInfo" data-icone="info">Informação</button>
+        <span class="sep"></span>
+        <button class="bp" id="btGravarVista" data-icone="olho" title="Grava o enquadramento atual como a vista de entrada deste ambiente">Fixar vista de entrada</button>
+      </div>
+
+      <div class="dica-palco" id="dicaPalco" hidden></div>
+      <div class="leitura-camera" id="leituraCamera" hidden></div>
+
+      <div class="carregando" id="carregando" hidden>
+        <div class="eyebrow">CARREGANDO AMBIENTE</div>
+        <div class="barra-marca"><i></i></div>
+      </div>
+
+      <div class="aviso-palco" id="avisoPalco" hidden>
+        <span data-icone="imagem" data-ic-tam="28"></span>
+        <p id="avisoPalcoTexto"></p>
+      </div>
+
+      <div class="aviso-estreito">
+        <span data-icone="teclado" data-ic-tam="26"></span>
+        <p>O editor de tours precisa de uma tela larga: são três colunas simultâneas —
+          ambientes, panorama e inspetor. Abra num monitor ou numa janela maior.</p>
+      </div>
+    </div>
+
+    <!-- inspetor ------------------------------------------------------------ -->
+    <aside class="col-inspetor" id="inspetor"></aside>
+  </div>
+</div>
+
+<script type="module" src="/app/js/gestao-editor.js"></script>
+</body>
+</html>

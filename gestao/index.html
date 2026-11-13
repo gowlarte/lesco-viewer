@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lesco Viewer — gestão de tours</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app/css/tokens.css">
+<link rel="stylesheet" href="/app/css/base.css">
+<link rel="stylesheet" href="/app/css/gestao.css">
+</head>
+<body>
+
+<div class="viewer">
+  <aside class="side">
+    <div class="side-brand">
+      <a class="logo" href="/gestao" style="--lw:104px" aria-label="Lesco Viewer">
+        <img src="/app/assets/logo-lesco.png" alt="Lesco">
+      </a>
+      <div class="side-caption">VIEWER · TOURS 360</div>
+    </div>
+
+    <nav class="nav" aria-label="Seções">
+      <div class="nav-label">GESTÃO</div>
+      <a class="nav-item is-active" href="/gestao" data-icone="camadas">Obras e tours<span class="nav-badge" id="contaNav"></span></a>
+      <a class="nav-item" href="/" target="_blank" rel="noopener" data-icone="olho">Ver o acervo</a>
+    </nav>
+
+    <div class="side-foot">
+      <div class="painel-publica">
+        <div class="eyebrow-sm">PUBLICAÇÃO</div>
+        <div class="meta-s" id="resumoPublica">—</div>
+        <button class="btn btn-secondary btn-sm" id="btExportar" data-icone="pacote">Gerar pacote público</button>
+        <div class="field-nota">Monta <code>dist/</code> com a capa do acervo e uma pasta por obra publicada.</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="gradrule"></div>
+    <div class="page">
+      <header class="page-head">
+        <div>
+          <div class="eyebrow">ACERVO INTERNO</div>
+          <h1 class="h1" style="margin-top:6px">Tours 360</h1>
+          <p class="lead">Cada obra entregue vira um tour navegável. Suba os panoramas, ligue os
+            ambientes pelos pontos de passagem e publique quando a obra estiver pronta para
+            ser mostrada a um especificador.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-primary" id="btNovo" data-icone="mais">Novo tour</button>
+        </div>
+      </header>
+
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por situação"></div>
+
+      <section id="grade" aria-live="polite"></section>
+    </div>
+  </main>
+</div>
+
+<script type="module" src="/app/js/gestao-lista.js"></script>
+</body>
+</html>

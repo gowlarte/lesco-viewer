@@ -1,0 +1,18 @@
+{
+  "name": "lesco-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Editor de tours virtuais 360 da Lesco e visualizador publico estatico",
+  "scripts": {
+    "dev": "node server.js",
+    "dev:rede": "node server.js --rede",
+    "dev:vr": "node server.js --rede --https",
+    "cert": "powershell -ExecutionPolicy Bypass -File ferramentas/gerar-certificado.ps1",
+    "start": "node server.js",
+    "export": "node server.js --export"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

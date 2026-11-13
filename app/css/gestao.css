@@ -1,0 +1,325 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   LESCO VIEWER — gestão
+   Mesmo shell do Lesco Vault: barra lateral de 264px, régua de degradê sob o topo,
+   página com margens generosas. Ferramenta de mesa, mas não quebra no tablet.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── shell da listagem ──────────────────────────────────────────────────── */
+.viewer { display: grid; grid-template-columns: 264px 1fr; min-height: 100vh; }
+.side {
+  border-right: .5px solid var(--stroke-hairline); background: var(--surface-sidebar);
+  padding: 26px 20px; display: flex; flex-direction: column; gap: 26px;
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.side-brand { display: flex; flex-direction: column; gap: 4px; }
+.side-caption { font: 600 9px var(--font-display); letter-spacing: .18em; color: var(--text-meta); padding-left: 2px; }
+
+.nav { display: flex; flex-direction: column; gap: 1px; }
+.nav-label { font: 600 9px var(--font-display); letter-spacing: .18em; color: var(--gray-bd); padding: 4px 10px 8px; }
+.nav-item {
+  display: flex; align-items: center; gap: var(--s10); border-radius: var(--radius-control);
+  padding: 10px 11px; font: 400 13px var(--font-ui); color: var(--gray-35);
+  transition: background-color var(--motion-fast) var(--motion-ease); width: 100%; text-align: left;
+}
+.nav-item:hover { background: var(--surface-nav-active); }
+.nav-item.is-active { background: var(--surface-nav-active); font-weight: 600; color: var(--gray-1e); }
+.nav-item svg { flex: none; opacity: .75; }
+.nav-item.is-active svg { opacity: 1; }
+.nav-badge { margin-left: auto; font: 600 10px var(--font-ui); color: var(--text-meta); }
+
+.side-foot { margin-top: auto; display: flex; flex-direction: column; gap: 14px; }
+.painel-publica {
+  border: .5px solid var(--stroke-hairline); border-radius: var(--radius-control);
+  background: var(--white); padding: 13px; display: flex; flex-direction: column; gap: var(--s10);
+}
+.painel-publica .eyebrow-sm { font-size: 8.5px; color: var(--gray-bd); }
+.dot { width: 6px; height: 6px; border-radius: var(--radius-circle); flex: none; }
+
+.main { display: flex; flex-direction: column; min-width: 0; }
+.page { padding: 34px 44px 60px; display: flex; flex-direction: column; gap: 30px; max-width: 1320px; }
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.page-actions { display: flex; gap: var(--s10); align-items: center; }
+.filtros { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; }
+
+/* ── grade de obras ─────────────────────────────────────────────────────── */
+.grade-tours { display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr)); gap: var(--s20); }
+.cartao-tour {
+  border-radius: var(--radius-card); background: var(--surface-card); box-shadow: var(--ring-hairline);
+  overflow: hidden; display: flex; flex-direction: column; text-align: left;
+  transition: box-shadow var(--motion-base) var(--motion-ease);
+}
+.cartao-tour:hover { box-shadow: var(--ring-hairline), 0 2px 14px rgba(30,30,30,.07); }
+.cartao-capa {
+  aspect-ratio: 2 / 1; background: var(--surface-media); position: relative;
+  display: grid; place-items: center; overflow: hidden;
+}
+.cartao-capa img { width: 100%; height: 100%; object-fit: cover; }
+.cartao-capa svg { color: var(--gray-bd); }
+.selo {
+  position: absolute; top: var(--s10); left: var(--s10);
+  border-radius: var(--radius-pill); padding: 4px 10px;
+  font: 600 9.5px var(--font-display); letter-spacing: .14em; text-transform: uppercase;
+  background: var(--white); color: var(--gray-52); box-shadow: var(--ring-hairline);
+}
+.selo-publicado { background: var(--status-ok); color: #fff; box-shadow: none; }
+/* O que esta no ar nao e o que esta em data/. Vermelho porque e informacao que o
+   editor nao tem como descobrir sozinho olhando a tela. */
+.selo-desatualizado { background: #7a2f1e; color: #F5EDE9; box-shadow: none; top: auto; bottom: 8px; }
+.btn.tem-pendencia { background: #7a2f1e; color: #F5EDE9; border-color: #7a2f1e; }
+.btn.tem-pendencia:hover { background: #632518; }
+.cartao-corpo { padding: 15px 16px 16px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.cartao-titulo { font: 700 16px/1.25 var(--font-display); letter-spacing: -.02em; color: var(--gray-1e); }
+.cartao-meta { display: flex; align-items: center; gap: 7px; font: 400 11.5px var(--font-ui); color: var(--gray-52); }
+.cartao-meta svg { opacity: .6; flex: none; }
+.cartao-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.cartao-pe {
+  margin-top: auto; padding-top: 12px; border-top: .5px solid var(--stroke-divider);
+  display: flex; align-items: center; gap: var(--s10);
+}
+.cartao-pe .meta { margin-right: auto; }
+
+/* Excluir fica discreto por padrão: é destrutivo e não deve competir com Editar.
+   Só ganha a cor de aviso quando a intenção já está declarada pelo cursor. */
+.cartao-excluir {
+  width: 30px; height: 30px; display: grid; place-items: center; flex: none;
+  border-radius: var(--radius-control); color: var(--text-meta);
+  transition: background-color var(--motion-fast) var(--motion-ease),
+              color var(--motion-fast) var(--motion-ease);
+}
+.cartao-excluir:hover { background: #f3e6e1; color: #7a2f1e; }
+.cartao-excluir:focus-visible { outline: 2px solid #7a2f1e; outline-offset: 1px; }
+
+/* Impedimento de publicação: informa, sem alarmar. */
+.rotulo-impedido { color: var(--text-meta); font-style: italic; }
+
+/* ── shell do editor ────────────────────────────────────────────────────── */
+.editor { display: grid; grid-template-rows: auto 3px 1fr; height: 100vh; overflow: hidden; }
+.editor-topo {
+  display: flex; align-items: center; gap: var(--s15);
+  padding: 12px 20px; background: var(--surface-sidebar);
+  border-bottom: .5px solid var(--stroke-hairline); flex: none;
+}
+.editor-voltar {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px 7px 7px;
+  border-radius: var(--radius-control); font: 600 11.5px var(--font-ui); color: var(--gray-52);
+  transition: background-color var(--motion-fast) var(--motion-ease);
+}
+.editor-voltar:hover { background: var(--surface-nav-active); color: var(--gray-1e); }
+.editor-obra { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.editor-obra b { font: 700 15px var(--font-display); letter-spacing: -.02em; color: var(--gray-1e);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.editor-acoes { margin-left: auto; display: flex; align-items: center; gap: var(--s10); }
+.sujo { display: inline-flex; align-items: center; gap: 7px; font: 400 11.5px var(--font-ui); color: var(--text-meta); }
+
+.editor-corpo { display: grid; grid-template-columns: 244px 1fr 348px; min-height: 0; }
+
+/* coluna dos ambientes */
+.col-cenas {
+  border-right: .5px solid var(--stroke-hairline); background: var(--surface-sidebar);
+  display: flex; flex-direction: column; min-height: 0;
+}
+.col-topo { padding: 16px 16px 10px; display: flex; align-items: baseline; justify-content: space-between; gap: var(--s10); flex: none; }
+.lista-cenas {
+  flex: 1; min-height: 0; overflow-y: auto; padding: 0 var(--s10) var(--s10);
+  display: flex; flex-direction: column; gap: 3px;
+  /* Reinserir o item arrastado faz o Chrome "ancorar" a rolagem e devolvê-la alguns
+     pixels — brigando com a auto-rolagem de borda a cada troca de lugar. */
+  overflow-anchor: none;
+}
+.item-cena {
+  display: grid; grid-template-columns: 58px 1fr auto; align-items: center; gap: var(--s10);
+  padding: 7px; border-radius: var(--radius-control); text-align: left; width: 100%;
+  transition: background-color var(--motion-fast) var(--motion-ease),
+              transform 160ms var(--motion-ease); /* o deslize do FLIP ao reordenar */
+  /* A linha inteira abre o ambiente. Sem isto o cursor de texto sobre o nome faz a
+     linha parecer um parágrafo qualquer, e o clique nem parece existir. */
+  cursor: pointer;
+  -webkit-user-select: none; user-select: none;
+}
+.item-cena:hover { background: var(--surface-nav-active); }
+.item-cena.is-atual { background: var(--surface-nav-active); }
+.item-cena.is-atual .item-nome { font-weight: 600; color: var(--gray-1e); }
+.item-thumb {
+  width: 58px; aspect-ratio: 2 / 1; border-radius: 3px; background: var(--surface-media);
+  overflow: hidden; box-shadow: var(--ring-hairline); position: relative; flex: none;
+}
+.item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.item-texto { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.item-nome { font: 400 12.5px var(--font-ui); color: var(--gray-35); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item-sub { font: 400 10px var(--font-ui); color: var(--text-meta); }
+.item-capa { color: var(--gray-52); opacity: .9; }
+/* Pega de arrasto: o único ponto da linha que arrasta, e por isso o único com a mão.
+   touch-action:none só aqui — no resto a lista continua rolando com o dedo. */
+.item-pega {
+  width: 20px; height: 28px; display: grid; place-items: center;
+  color: var(--gray-bd); border-radius: 2px; cursor: grab; touch-action: none;
+  opacity: 0; transition: opacity var(--motion-fast) var(--motion-ease);
+}
+.item-pega:active { cursor: grabbing; }
+.item-cena:hover .item-pega, .item-cena:focus-within .item-pega { opacity: 1; }
+.item-pega:hover { color: var(--gray-52); background: var(--surface-pill); }
+
+/* reordenação por arrasto */
+.lista-cenas.esta-reordenando { cursor: grabbing; }
+/* o hover não deve saltar entre linhas enquanto uma delas voa por cima */
+.lista-cenas.esta-reordenando .item-cena { pointer-events: none; }
+.item-cena.is-arrastando {
+  position: relative; z-index: 2; transition: none; cursor: grabbing;
+  background: var(--white);
+  box-shadow: var(--ring-hairline), 0 8px 20px rgba(0,0,0,.16);
+}
+.item-cena.is-arrastando .item-pega { opacity: 1; color: var(--gray-52); }
+
+@media (prefers-reduced-motion: reduce) {
+  .item-cena { transition: background-color var(--motion-fast) var(--motion-ease); }
+}
+
+.solta {
+  margin: var(--s10); padding: var(--s20) var(--s15); flex: none;
+  border: .5px dashed var(--stroke-divider-strong); border-radius: var(--radius-card);
+  background: var(--surface-field); text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  transition: border-color var(--motion-base) var(--motion-ease), background-color var(--motion-base) var(--motion-ease);
+}
+.solta.is-sobre { border-color: var(--gray-1e); background: var(--gray-ee); border-style: solid; }
+.solta svg { color: var(--gray-bd); }
+.solta b { font: 600 11.5px var(--font-ui); color: var(--gray-35); }
+.solta span { font: 400 10.5px/1.5 var(--font-ui); color: var(--text-meta); }
+.solta input { display: none; }
+
+.fila-upload { padding: 0 var(--s10) var(--s10); display: flex; flex-direction: column; gap: 7px; flex: none; }
+.upload-item { display: flex; flex-direction: column; gap: 5px; padding: 8px 9px; border-radius: var(--radius-control); background: var(--white); box-shadow: var(--ring-hairline); }
+.upload-nome { font: 400 10.5px var(--font-ui); color: var(--gray-35); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.upload-etapa { font: 400 9.5px var(--font-ui); color: var(--text-meta); }
+
+/* palco central */
+/* QR do endereco da LAN — abrir o tour no Quest sem digitar IP no teclado virtual. */
+.painel-qr .painel-corpo { align-items: center; text-align: center; }
+.qr-alvo { line-height: 0; padding: 10px; background: #fff; border-radius: var(--radius-control);
+  box-shadow: var(--ring-hairline); }
+.qr-alvo svg { width: 220px; height: 220px; display: block; }
+.qr-endereco { font: 400 11px var(--font-mono, var(--font-ui)); color: var(--gray-35);
+  word-break: break-all; }
+
+/* Foto de compartilhamento — a miniatura do link, na ficha da obra. */
+.foto-social { display: flex; gap: 10px; align-items: center; padding: 8px; cursor: pointer;
+  border: .5px dashed var(--stroke-divider-strong); border-radius: var(--radius-control);
+  background: var(--surface-field); }
+.foto-social:hover { border-color: var(--gray-7f); background: var(--gray-ee); }
+.foto-social-previa { flex: none; width: 96px; aspect-ratio: 1200 / 630; border-radius: 4px;
+  overflow: hidden; background: var(--gray-ee); box-shadow: var(--ring-hairline); }
+.foto-social-previa img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.foto-social-texto { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.foto-social-texto b { font: 600 11.5px var(--font-ui); color: var(--gray-35); }
+.foto-social-texto span { font: 400 10.5px/1.5 var(--font-ui); color: var(--text-meta); }
+
+/* Pendência de manutenção da obra — derivada de tela faltando nas cenas antigas. */
+.manutencao { flex: none; margin: 0 var(--s10) var(--s10); padding: 10px 11px; border-radius: var(--radius-control);
+  background: var(--white); box-shadow: var(--ring-hairline); display: flex; flex-direction: column; gap: 7px; }
+.manutencao p { margin: 0; font: 400 10.5px/1.55 var(--font-ui); color: var(--text-meta); }
+.manutencao b { font: 600 11px var(--font-ui); color: var(--gray-35); display: block; }
+
+.col-palco { position: relative; min-width: 0; background: #141414; }
+.barra-palco {
+  position: absolute; top: var(--s15); left: 50%; transform: translateX(-50%); z-index: 9;
+  display: flex; gap: var(--s10); align-items: center;
+  padding: 7px; border-radius: var(--radius-control);
+  background: var(--foto-chrome); box-shadow: inset 0 0 0 .5px var(--foto-hairline);
+  backdrop-filter: var(--foto-blur); -webkit-backdrop-filter: var(--foto-blur);
+}
+.barra-palco .sep { width: .5px; height: 22px; background: var(--foto-hairline); }
+.bp {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px;
+  border-radius: 3px; font: 600 11.5px var(--font-ui); color: var(--foto-texto);
+  transition: background-color var(--motion-fast) var(--motion-ease);
+}
+.bp:hover { background: rgba(255,255,255,.14); }
+.bp.is-on { background: var(--foto-texto); color: var(--gray-1e); }
+.dica-palco {
+  position: absolute; bottom: var(--s20); left: 50%; transform: translateX(-50%); z-index: 9;
+  padding: 9px 15px; border-radius: var(--radius-control);
+  background: var(--foto-scrim-forte); box-shadow: inset 0 0 0 .5px var(--foto-hairline);
+  backdrop-filter: var(--foto-blur); -webkit-backdrop-filter: var(--foto-blur);
+  font: 400 11.5px var(--font-ui); color: var(--foto-texto); text-align: center;
+  display: flex; align-items: center; gap: var(--s10);
+}
+.leitura-camera {
+  position: absolute; bottom: var(--s20); right: var(--s20); z-index: 9;
+  font: 400 10px var(--font-ui); color: var(--foto-texto-meta);
+  padding: 6px 10px; border-radius: 3px; background: rgba(20,20,20,.5);
+  font-variant-numeric: tabular-nums;
+}
+
+/* inspetor */
+.col-inspetor {
+  border-left: .5px solid var(--stroke-hairline); background: var(--surface-page);
+  overflow-y: auto; min-height: 0; display: flex; flex-direction: column;
+}
+.insp-secao { padding: 18px 20px; border-bottom: .5px solid var(--stroke-divider); display: flex; flex-direction: column; gap: var(--s15); }
+.insp-secao:last-child { border-bottom: none; }
+.insp-cabeca { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s10); }
+
+.lista-hs { display: flex; flex-direction: column; gap: 4px; }
+.hs-linha {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s10);
+  padding: 9px 10px; border-radius: var(--radius-control); background: var(--white);
+  box-shadow: var(--ring-hairline); text-align: left; width: 100%;
+  transition: box-shadow var(--motion-fast) var(--motion-ease);
+}
+.hs-linha:hover { box-shadow: inset 0 0 0 .5px var(--gray-bd); }
+.hs-linha.is-sel { box-shadow: inset 0 0 0 1px var(--gray-1e); }
+.hs-linha-icone { width: 24px; height: 24px; display: grid; place-items: center; border-radius: 3px; background: var(--surface-field); color: var(--gray-52); flex: none; }
+.hs-linha-texto { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.hs-linha-texto b { font: 600 12px var(--font-ui); color: var(--gray-1e); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hs-linha-texto span { font: 400 10px var(--font-ui); color: var(--text-meta); }
+
+.forma-hs { display: flex; flex-direction: column; gap: var(--s15); padding: var(--s15); border-radius: var(--radius-card); background: var(--white); box-shadow: var(--ring-hairline); }
+.seg { display: grid; grid-template-columns: 1fr 1fr; border: .5px solid var(--stroke-hairline); border-radius: var(--radius-control); overflow: hidden; }
+.seg button { padding: 9px 0; text-align: center; font: 400 11.5px var(--font-ui); color: var(--gray-52); background: var(--white); }
+.seg button + button { border-left: .5px solid var(--gray-e9); }
+.seg button:hover { background: var(--gray-f0); }
+.seg button.is-on { background: var(--surface-nav-active); color: var(--gray-1e); font-weight: 600; }
+
+/* rosa de direções da seta de passagem — a posição do botão na grade É o significado */
+.rosa {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  width: max-content;
+  border: .5px solid var(--stroke-hairline); border-radius: var(--radius-control);
+  background: var(--gray-e9); overflow: hidden;
+}
+.rosa button, .rosa-meio {
+  width: 34px; height: 30px; display: grid; place-items: center; background: var(--white);
+}
+.rosa button { color: var(--gray-52); }
+.rosa button:hover { background: var(--gray-f0); color: var(--gray-1e); }
+.rosa button.is-on { background: var(--surface-nav-active); color: var(--gray-1e); }
+.rosa button:focus-visible { outline: none; box-shadow: inset 0 0 0 1px var(--gray-1e); }
+.rosa-meio { background: var(--surface-field); color: var(--gray-1e); }
+.rosa svg { transform: rotate(var(--giro, 0deg)); }
+.rosa-meio svg { transition: transform var(--motion-base) var(--motion-ease); }
+
+.linhas-toggle { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ── responsivo ─────────────────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .editor-corpo { grid-template-columns: 214px 1fr 310px; }
+}
+@media (max-width: 1080px) {
+  /* Abaixo disto o editor não cabe em três colunas. Ele é ferramenta de mesa:
+     dizemos isso em vez de entregar uma versão mutilada que perde hotspot. */
+  .editor-corpo { grid-template-columns: 1fr; }
+  .col-cenas, .col-inspetor { display: none; }
+  .aviso-estreito { display: grid !important; }
+}
+.aviso-estreito { display: none; position: absolute; inset: 0; z-index: 40;
+  place-content: center; justify-items: center; gap: var(--s15); text-align: center;
+  padding: var(--s40); background: #141414; color: var(--foto-texto); }
+.aviso-estreito p { margin: 0; font: 400 13px/1.7 var(--font-ui); color: var(--foto-texto-meta); max-width: 40ch; }
+
+@media (max-width: 980px) {
+  .viewer { grid-template-columns: 1fr; }
+  .side { position: static; height: auto; border-right: none;
+    border-bottom: .5px solid var(--stroke-hairline); padding: 18px 20px; gap: 18px; }
+  .side-foot { margin-top: 0; }
+  .page { padding: 24px 20px 48px; }
+}

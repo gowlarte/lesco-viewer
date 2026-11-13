@@ -1,0 +1,121 @@
+{
+  "slug": "alphaville-pinhais-residencia-muxarabi",
+  "obra": "Alphaville Pinhais - Residência Muxarabi",
+  "cidade": "Curitiba",
+  "uf": "PR",
+  "tipo": "resort",
+  "ano": 2026,
+  "escritorio": "Arquitetare",
+  "linhas": [],
+  "apresentacao": "",
+  "publicado": false,
+  "capaCenaId": "c1",
+  "cenas": [
+    {
+      "id": "c1",
+      "nome": "Ambiente 1",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c2",
+      "nome": "Ambiente 2",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c3",
+      "nome": "Ambiente 3",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c4",
+      "nome": "Ambiente 4",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c5",
+      "nome": "Ambiente 5",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c6",
+      "nome": "Ambiente 6",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c7",
+      "nome": "Ambiente 7",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c8",
+      "nome": "Ambiente 8",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    }
+  ],
+  "criadoEm": "2026-11-12T20:53:03.630Z",
+  "atualizadoEm": "2026-11-12T20:53:32.055Z"
+}

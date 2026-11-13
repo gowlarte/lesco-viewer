@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Constelação — Tours 360 Lesco</title>
+<meta name="description" content="As obras entregues da Lesco espalhadas em constelação. Passe pelo ambiente para vê-lo em cor e entre no tour 360.">
+<!--META-->
+<link rel="icon" href="/app/assets/logo-lesco.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app/css/tokens.css">
+<link rel="stylesheet" href="/app/css/base.css">
+<link rel="stylesheet" href="/app/css/constelacao.css">
+<!--MODO-->
+</head>
+<body class="pagina-constelacao">
+
+<header class="cst-topo">
+  <a class="logo logo-claro" href="/" style="--lw:88px" aria-label="Lesco — ver o acervo em grade">
+    <img src="/app/assets/logo-lesco.png" alt="Lesco">
+  </a>
+  <nav class="cst-filtros" id="filtros" aria-label="Filtrar obras"></nav>
+  <div class="cst-topo-dir">
+    <a class="cst-link" href="/">Ver em grade</a>
+  </div>
+</header>
+
+<main class="cst-palco" id="palco">
+  <div class="cst-marca" aria-hidden="true"></div>
+  <div class="cst-campo" id="campo" aria-label="Obras do acervo"></div>
+</main>
+
+<footer class="cst-pe">
+  <div id="conta"></div>
+  <div class="cst-rotulo" id="rotulo" aria-live="polite">Constelação</div>
+  <div class="cst-pe-dir">Lesco · Tours 360</div>
+</footer>
+
+<script type="module" src="/app/js/publico-constelacao.js"></script>
+</body>
+</html>

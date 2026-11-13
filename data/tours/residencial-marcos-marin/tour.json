@@ -1,0 +1,71 @@
+{
+  "slug": "residencial-marcos-marin",
+  "obra": "Residencial Marcos Marin",
+  "cidade": "Maringá",
+  "uf": "SC",
+  "tipo": "residencia",
+  "ano": 2026,
+  "escritorio": "Ao Cubo Arquitetura",
+  "linhas": [
+    "brise"
+  ],
+  "apresentacao": "",
+  "publicado": true,
+  "capaCenaId": "c1",
+  "cenas": [
+    {
+      "id": "c1",
+      "nome": "Ambiente 1",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c2",
+      "nome": "Ambiente 2",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c3",
+      "nome": "Ambiente 3",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c4",
+      "nome": "Ambiente 4",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    }
+  ],
+  "criadoEm": "2026-10-27T13:15:11.680Z",
+  "atualizadoEm": "2026-10-27T17:16:32.916Z"
+}

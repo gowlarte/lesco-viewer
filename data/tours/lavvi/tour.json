@@ -1,0 +1,69 @@
+{
+  "slug": "lavvi",
+  "obra": "Lavvi",
+  "cidade": "São Paulo",
+  "uf": "SP",
+  "tipo": "comercial",
+  "ano": 2026,
+  "escritorio": "Lavvi",
+  "linhas": [],
+  "apresentacao": "",
+  "publicado": true,
+  "capaCenaId": "c1",
+  "cenas": [
+    {
+      "id": "c1",
+      "nome": "Entrada",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c2",
+      "nome": "Detalhe ",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c3",
+      "nome": "Ambiente 3",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c4",
+      "nome": "Ambiente 4",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    }
+  ],
+  "criadoEm": "2026-09-01T14:20:22.663Z",
+  "atualizadoEm": "2026-09-02T23:14:19.458Z"
+}

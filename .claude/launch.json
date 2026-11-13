@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lesco-viewer-local",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js"],
+      "port": 4360,
+      "autoPort": false,
+      "url": "http://127.0.0.1:4360"
+    },
+    {
+      "name": "lesco-viewer-rede",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js", "--rede"],
+      "port": 4360,
+      "autoPort": false,
+      "url": "http://127.0.0.1:4360"
+    },
+    {
+      "name": "lesco-viewer",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js", "--rede", "--https"],
+      "port": 4360,
+      "autoPort": false,
+      "url": "https://127.0.0.1:4360"
+    }
+  ]
+}

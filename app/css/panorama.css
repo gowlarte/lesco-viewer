@@ -1,0 +1,174 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   LESCO VIEWER — palco do panorama
+   O único contexto do sistema em que a interface fica sobre fotografia. Usa o
+   vocabulário --foto-* dos tokens, não as superfícies de papel.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.palco {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #141414;
+  touch-action: none; /* o arrasto é a navegação; o navegador não pode roubá-lo */
+}
+.palco canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  outline: none;
+}
+.palco canvas:active { cursor: grabbing; }
+
+/* véus de leitura no topo e no pé — o texto nunca disputa com a foto */
+.veu {
+  position: absolute; left: 0; right: 0; pointer-events: none; z-index: 2;
+}
+.veu-topo { top: 0; height: 132px; background: var(--foto-veu-topo); }
+.veu-pe { bottom: 0; height: 168px; background: var(--foto-veu-pe); }
+
+/* ── camada de hotspots ─────────────────────────────────────────────────── */
+.camada-hs {
+  position: absolute; inset: 0; z-index: 5;
+  pointer-events: none; /* só os botões capturam; o resto do clique vai ao canvas */
+}
+
+.hs {
+  position: absolute; left: 0; top: 0;
+  width: 44px; height: 44px; margin: -22px 0 0 -22px; /* alvo de toque mínimo */
+  pointer-events: auto;
+  background: none; border: none; padding: 0;
+  color: var(--foto-texto);
+  transition: opacity var(--motion-base) var(--motion-ease);
+}
+.hs[hidden] { display: none; }
+
+.hs-marca {
+  position: absolute; inset: 8px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-circle);
+  background: var(--foto-chrome);
+  box-shadow: inset 0 0 0 1px var(--foto-hairline-forte), 0 1px 10px rgba(0,0,0,.28);
+  backdrop-filter: var(--foto-blur);
+  -webkit-backdrop-filter: var(--foto-blur);
+  transition: background-color var(--motion-base) var(--motion-ease),
+              transform var(--motion-base) var(--motion-ease);
+}
+.hs-glifo { display: grid; place-items: center; opacity: .95; }
+/* a seta de passagem gira para o lado definido no editor; o "+" da informação fica em 0 */
+.hs-glifo svg { transform: rotate(var(--giro, 0deg)); }
+
+/* respiro lento, para o ponto se anunciar sem agitar a cena */
+.hs-pulso {
+  position: absolute; inset: -1px; border-radius: var(--radius-circle);
+  box-shadow: 0 0 0 1px var(--foto-hairline-forte);
+  animation: respiro 3.2s var(--motion-ease) infinite;
+}
+@keyframes respiro {
+  0%   { transform: scale(1);    opacity: .55 }
+  70%  { transform: scale(1.85); opacity: 0 }
+  100% { transform: scale(1.85); opacity: 0 }
+}
+.hs-info .hs-pulso { display: none; } /* só a navegação chama; informação espera ser achada */
+
+.hs:hover .hs-marca,
+.hs:focus-visible .hs-marca {
+  background: var(--foto-chrome-hover);
+  transform: scale(1.1);
+}
+.hs:focus-visible { outline: none; }
+.hs:focus-visible .hs-marca { box-shadow: inset 0 0 0 1px #fff, 0 0 0 3px rgba(255,255,255,.35); }
+
+.hs-rotulo {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  white-space: nowrap; pointer-events: none;
+  padding: 7px 12px; border-radius: var(--radius-control);
+  background: var(--foto-scrim-forte);
+  box-shadow: inset 0 0 0 .5px var(--foto-hairline);
+  backdrop-filter: var(--foto-blur);
+  -webkit-backdrop-filter: var(--foto-blur);
+  font: 600 11.5px var(--font-ui); letter-spacing: .01em; color: var(--foto-texto);
+  opacity: 0; transition: opacity var(--motion-base) var(--motion-ease);
+}
+.hs[data-lado="direita"] .hs-rotulo { left: 46px; }
+.hs[data-lado="esquerda"] .hs-rotulo { right: 46px; }
+.hs:hover .hs-rotulo,
+.hs:focus-visible .hs-rotulo,
+.hs.is-sel .hs-rotulo { opacity: 1; }
+
+/* Sem hover não há como descobrir para onde a porta leva: no toque o rótulo fica. */
+@media (hover: none) {
+  .hs-nav .hs-rotulo { opacity: 1; }
+}
+
+/* estados do editor */
+.hs.is-sel .hs-marca { background: var(--gray-1e); box-shadow: inset 0 0 0 1px #fff, 0 0 0 3px rgba(255,255,255,.45); }
+.hs.is-arrastando { cursor: grabbing; }
+.hs.is-arrastando .hs-marca { transform: scale(1.18); }
+
+.palco.modo-colocar canvas { cursor: crosshair; }
+.palco.modo-colocar .camada-hs { pointer-events: none; }
+.palco.modo-colocar .hs { pointer-events: none; opacity: .45; }
+
+/* ── controles sobre a foto ─────────────────────────────────────────────── */
+.ctrl-grupo { position: absolute; z-index: 8; display: flex; gap: var(--s10); }
+.ctrl {
+  width: 38px; height: 38px; display: grid; place-items: center;
+  border-radius: var(--radius-control);
+  background: var(--foto-chrome); color: var(--foto-texto);
+  box-shadow: inset 0 0 0 .5px var(--foto-hairline);
+  backdrop-filter: var(--foto-blur);
+  -webkit-backdrop-filter: var(--foto-blur);
+  transition: background-color var(--motion-fast) var(--motion-ease);
+}
+.ctrl:hover { background: var(--foto-chrome-hover); }
+.ctrl.is-on { background: var(--foto-texto); color: var(--gray-1e); }
+.ctrl[disabled] { opacity: .35; pointer-events: none; }
+.ctrl-largo { width: auto; padding: 0 14px; gap: 8px; font: 600 11.5px var(--font-ui); }
+
+/* O VR não é um ícone entre iguais: é a única saída para outro aparelho, e sem rótulo
+   ninguém adivinha o que o óculos faz. Ganha largura e nome. */
+.ctrl-vr {
+  width: auto; padding: 0 13px 0 11px;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.ctrl-vr-rotulo {
+  font: 600 11px var(--font-display); letter-spacing: .14em;
+}
+
+/* ── carregando ─────────────────────────────────────────────────────────── */
+.carregando {
+  position: absolute; inset: 0; z-index: 20;
+  display: grid; place-content: center; justify-items: center; gap: var(--s15);
+  background: #141414; color: var(--foto-texto-meta);
+  transition: opacity var(--motion-cena) var(--motion-ease);
+}
+.carregando[hidden] { display: none; }
+.carregando.saindo { opacity: 0; pointer-events: none; }
+.carregando .eyebrow { color: var(--foto-texto-meta); }
+/* o degradê da marca aparece aqui como detalhe pontual, não como fundo de tela */
+.barra-marca {
+  width: 168px; height: 2px; border-radius: 2px; overflow: hidden;
+  background: rgba(255,255,255,.14);
+}
+.barra-marca i {
+  display: block; width: 42%; height: 100%; background: var(--gradient-brand);
+  animation: desliza 1.5s var(--motion-ease) infinite;
+}
+@keyframes desliza {
+  0%   { transform: translateX(-100%) }
+  100% { transform: translateX(340%) }
+}
+
+.aviso-palco {
+  position: absolute; inset: 0; z-index: 30;
+  display: grid; place-content: center; justify-items: center; gap: var(--s15);
+  background: #141414; color: var(--foto-texto); text-align: center; padding: var(--s40);
+}
+.aviso-palco p { margin: 0; font: 400 13px/1.7 var(--font-ui); max-width: 46ch; color: var(--foto-texto-meta); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-pulso, .barra-marca i { animation: none; }
+  .hs-pulso { opacity: .4; }
+}

@@ -1,0 +1,43 @@
+{
+  "slug": "jha-boutique",
+  "obra": "JHA Boutique",
+  "cidade": "São Paulo",
+  "uf": "SP",
+  "tipo": "comercial",
+  "ano": 2026,
+  "escritorio": "",
+  "linhas": [],
+  "apresentacao": "",
+  "publicado": true,
+  "capaCenaId": "c2",
+  "cenas": [
+    {
+      "id": "c1",
+      "nome": "Ambiente 1",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": -1.7559941978766949,
+        "pitch": 0.32686385949535374,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c2",
+      "nome": "Ambiente 2",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": -0.27615523770356537,
+        "pitch": 0.4010706084782076,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    }
+  ],
+  "criadoEm": "2026-09-01T14:33:27.340Z",
+  "atualizadoEm": "2026-09-02T22:48:00.931Z"
+}

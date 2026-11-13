@@ -1,0 +1,82 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   LESCO VIEWER — tokens
+   Transcritos do design system do Lesco Vault (vault-gestao.html / vault-externo.html)
+   para que gestão e acervo sejam reconhecíveis como a mesma família de produto.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+
+  /* neutral ramp */
+  --gray-1e:#1E1E1E; --gray-1f:#1F1F1F; --gray-2c:#2C2C2C; --gray-35:#353535; --gray-52:#525252;
+  --gray-7f:#7F7F7F; --gray-80:#808080; --gray-bd:#BDBDBD; --gray-d9:#D9D9D9; --gray-e0:#E0E0E0;
+  --gray-e9:#E9E9E9; --gray-ea:#EAEAEA; --gray-ee:#EEEEEE; --gray-f0:#F0F0F0; --gray-f2:#F2F2F2;
+  --gray-f3:#F3F3F3; --gray-f5:#F5F5F5; --white:#FFFFFF;
+
+  /* brand spectrum — os quatro stops do swoosh */
+  --brand-cream:#EFDCC5; --brand-peach:#EFBEAA; --brand-sage:#D8E2D7; --brand-sky:#C0D3DF;
+
+  /* semantic — o único do sistema */
+  --status-ok:#649353;
+
+  /* surfaces */
+  --surface-page:#EEEEEE;
+  --surface-card:linear-gradient(180deg,rgba(245,245,245,.5) 0%,rgba(243,243,243,.5) 100%);
+  --surface-sidebar:linear-gradient(180deg,#EEEEEE 0%,#F0F0F0 100%);
+  --surface-field:#F5F5F5;
+  --surface-nav-active:#E9E9E9;
+  --surface-pill:#D9D9D9;
+  --surface-media:#F2F2F2;
+  --surface-inverse:#1E1E1E;
+
+  /* text */
+  --text-display:#353535; --text-body:#353535; --text-strong:#1F1F1F; --text-secondary:#525252;
+  --text-meta:#7F7F7F; --text-eyebrow:#808080; --text-control:#2C2C2C; --text-on-inverse:#EAEAEA;
+
+  /* strokes */
+  --stroke-hairline:#D9D9D9; --stroke-divider:#E0E0E0; --stroke-divider-strong:#BDBDBD; --stroke-pill:#F5F5F5;
+
+  /* gradients */
+  --gradient-brand:linear-gradient(34.421deg,#EFDCC5 -22.33%,#EFBEAA 25.99%,#D8E2D7 70.39%,#C0D3DF 113.49%);
+  --gradient-page:radial-gradient(522px 535.686px at 6.54% 50%,rgba(0,0,0,.03) 0%,rgba(102,102,102,.03) 100%),linear-gradient(#EEEEEE,#EEEEEE);
+
+  /* type */
+  --font-display:"Space Grotesk","PP Neue Machina",system-ui,sans-serif;
+  --font-ui:"Archivo","PP Object Sans",system-ui,sans-serif;
+
+  /* shape */
+  --radius-control:4px; --radius-card:8px; --radius-pill:20px; --radius-circle:50%;
+  --ring-hairline:inset 0 0 0 .5px #D9D9D9;
+  --ring-pill:inset 0 0 0 .5px #F5F5F5;
+  --motion-ease:cubic-bezier(.2,0,.2,1); --motion-fast:120ms; --motion-base:200ms;
+  /* a travessia entre ambientes é o único gesto longo do produto — 420ms é o teto da marca */
+  --motion-cena:420ms;
+
+  /* spacing — degrau de 5px */
+  --s5:5px; --s10:10px; --s15:15px; --s20:20px; --s25:25px; --s30:30px; --s40:40px; --s50:50px;
+
+  /* ── extensão deste produto: chrome sobre fotografia ──────────────────────
+     O Vault é papel sobre papel e nunca precisou disto. Aqui a interface do tour
+     fica sobre foto de obra, então existe um segundo vocabulário — o único lugar
+     do sistema onde transparência e blur são permitidos, exatamente como a marca
+     autoriza: scrim sobre fotografia, não estética padrão. */
+  --foto-scrim:rgba(30,30,30,.42);
+  --foto-scrim-forte:rgba(30,30,30,.72);
+  --foto-chrome:rgba(30,30,30,.55);
+  --foto-chrome-hover:rgba(30,30,30,.78);
+  --foto-hairline:rgba(255,255,255,.22);
+  --foto-hairline-forte:rgba(255,255,255,.4);
+  --foto-texto:#F3F0EA;
+  --foto-texto-meta:rgba(243,240,234,.66);
+  --foto-blur:saturate(120%) blur(14px);
+
+  /* gradientes de leitura no topo e no pé do panorama, para o texto nunca competir
+     com a foto — mais previsível que uma barra opaca cortando a imagem */
+  --foto-veu-topo:linear-gradient(180deg,rgba(20,20,20,.55) 0%,rgba(20,20,20,.22) 55%,transparent 100%);
+  --foto-veu-pe:linear-gradient(0deg,rgba(20,20,20,.62) 0%,rgba(20,20,20,.24) 55%,transparent 100%);
+}
+
+/* As três linhas ganham um acento só quando se fala delas — nunca como cor de tela.
+   Herdado do Lesco Design System das fichas técnicas. */
+[data-linha="panel-shield"] { --acento:#7a6344; }
+[data-linha="brise"]        { --acento:#4f6675; }
+[data-linha="green-brise"]  { --acento:#649353; }

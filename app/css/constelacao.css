@@ -1,0 +1,261 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONSTELAÇÃO — capa alternativa do acervo
+
+   Fundo preto e imagem espalhada, em vez da grade. Cabe no sistema pela extensão
+   --foto-*, que existe exatamente para chrome sobre fotografia: é o único lugar
+   onde o Vault autoriza transparência e véu. O preto do palco é mais fundo que o
+   --surface-inverse porque aqui a página inteira é o scrim, não um painel sobre ela.
+
+   Duas decisões que valem para todo azulejo:
+
+   1. O recorte. O panorama é 2:1 equirretangular, e mostrado inteiro ele aparece
+      com o teto e o piso esticados. Cada azulejo tem proporção própria e usa
+      object-fit: cover, o que corta a faixa do horizonte — a parte da projeção
+      onde a distorção é menor.
+   2. A varredura. Cipher usa vídeo no hover; aqui o que existe é panorama, então
+      o hover desliza o recorte na horizontal. É o mesmo gesto de olhar em volta,
+      e diz "360" sem precisar de um segundo arquivo.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.pagina-constelacao {
+  --cst-fundo: #0B0B0B;
+  --cst-apagado: .26;      /* opacidade de quem não está sob o cursor */
+  --cst-repouso: .6;       /* opacidade quando ninguém está sob o cursor */
+
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cst-fundo);
+  color: var(--foto-texto);
+  overflow: hidden;
+}
+
+/* ── topo ─────────────────────────────────────────────────────────────────── */
+
+.cst-topo {
+  position: relative;
+  z-index: 60;
+  flex: none;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--s20);
+  padding: var(--s25) var(--s30);
+}
+.cst-topo .logo img { width: var(--lw, 96px); }
+.cst-topo-dir { display: flex; justify-content: flex-end; }
+
+.cst-link {
+  font: 600 10px var(--font-display);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--foto-texto-meta);
+  text-decoration: none;
+  transition: color var(--motion-base) var(--motion-ease);
+}
+.cst-link:hover { color: var(--foto-texto); }
+
+/* Filtros: mesma regra do acervo em grade — só aparece o que existe no acervo. */
+.cst-filtros { display: flex; align-items: center; gap: var(--s10); flex-wrap: wrap; justify-content: center; }
+.cst-pill {
+  border: .5px solid var(--foto-hairline);
+  border-radius: var(--radius-pill);
+  background: none;
+  color: var(--foto-texto-meta);
+  cursor: pointer;
+  padding: 5px 11px;
+  font: 600 9px var(--font-display);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: color var(--motion-base) var(--motion-ease),
+              border-color var(--motion-base) var(--motion-ease);
+}
+.cst-pill:hover { color: var(--foto-texto); border-color: var(--foto-hairline-forte); }
+.cst-pill.is-on { color: var(--cst-fundo); background: var(--foto-texto); border-color: var(--foto-texto); }
+
+/* ── palco ────────────────────────────────────────────────────────────────── */
+
+.cst-palco {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Marca central: o degradê do swoosh num anel fino, girando devagar. Ocupa o
+   buraco que a distribuição deixa no meio — sem ela o centro fica um vazio sem
+   explicação. */
+.cst-marca {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 74px;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: var(--radius-circle);
+  background: var(--gradient-brand);
+  opacity: .82;
+  z-index: 5;
+  pointer-events: none;
+  animation: cst-girar 26s linear infinite;
+  -webkit-mask: radial-gradient(circle, transparent 0 56%, #000 57% 100%);
+  mask: radial-gradient(circle, transparent 0 56%, #000 57% 100%);
+}
+@keyframes cst-girar { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.cst-campo { position: absolute; inset: 0; }
+
+/* ── azulejo ──────────────────────────────────────────────────────────────── */
+
+.cst-item {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  aspect-ratio: var(--proporcao);
+  z-index: var(--z);
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--cst-fundo);
+  opacity: var(--cst-repouso);
+  /* Fio escuro na borda. O acervo é todo de interiores de madeira com faixa de
+     horizonte parecida, então dois azulejos encostados viram uma mancha só; a
+     referência se safa disso porque lá o conteúdo já contrasta sozinho. */
+  box-shadow: 0 0 0 1px var(--cst-fundo), 0 18px 40px rgba(0, 0, 0, .55);
+  /* A paralaxe é somada aqui e não num wrapper: --mx e --my vêm do palco em px, e
+     cada azulejo multiplica pela própria profundidade. Quem está mais perto anda
+     mais, que é o que constrói a sensação de camadas. */
+  transform: translate(-50%, -50%)
+             translate(calc(var(--mx, 0px) * var(--prof)), calc(var(--my, 0px) * var(--prof)));
+  transition: opacity var(--motion-base) var(--motion-ease),
+              transform var(--motion-base) var(--motion-ease),
+              filter var(--motion-base) var(--motion-ease);
+}
+
+.cst-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+  /* Aproxima mais um pouco depois do recorte. Equirretangular curva as horizontais
+     conforme se afasta da linha do horizonte, e a curva é o que denuncia a projeção;
+     fechando o enquadramento sobra a faixa central, que é quase reta. De quebra
+     aumenta o curso da varredura no hover. */
+  transform: scale(1.14);
+  /* Cinza no repouso é o que faz a obra sob o cursor saltar. O contraste é entre
+     uma imagem e todas as outras, não entre imagem e fundo. */
+  filter: grayscale(1) contrast(.86) brightness(calc(.34 + var(--prof) * .3));
+  transition: filter var(--motion-base) var(--motion-ease);
+}
+
+/* Sob o cursor: cor, brilho e a varredura do panorama. */
+.cst-item:hover,
+.cst-item:focus-visible {
+  opacity: 1;
+  outline: none;
+  z-index: 40;
+  transform: translate(-50%, -50%)
+             translate(calc(var(--mx, 0px) * var(--prof)), calc(var(--my, 0px) * var(--prof)))
+             scale(1.06);
+}
+.cst-item:hover img,
+.cst-item:focus-visible img {
+  filter: none;
+  animation: cst-varrer 7s var(--motion-ease) infinite alternate;
+}
+.cst-item:focus-visible { box-shadow: 0 0 0 1px var(--foto-texto); }
+
+/* O recorte desliza na horizontal — olhar em volta, dentro do azulejo. */
+@keyframes cst-varrer {
+  from { object-position: 26% 50%; }
+  to   { object-position: 74% 50%; }
+}
+
+/* Com alguém sob o cursor, o resto recua. :has é o que evita uma classe no palco
+   a cada pointerover — o navegador já sabe responder isso sozinho. */
+.cst-campo:has(.cst-item:hover) .cst-item:not(:hover),
+.cst-campo:has(.cst-item:focus-visible) .cst-item:not(:focus-visible) {
+  opacity: var(--cst-apagado);
+}
+
+/* ── pé ───────────────────────────────────────────────────────────────────── */
+
+.cst-pe {
+  position: relative;
+  z-index: 60;
+  flex: none;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: var(--s20);
+  padding: var(--s20) var(--s30) var(--s25);
+  font: 600 10px var(--font-display);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--foto-texto-meta);
+}
+.cst-pe-dir { text-align: right; }
+
+/* O centro do pé conta o que está sob o cursor. É onde o nome da obra aparece,
+   em vez de uma legenda colada no azulejo competindo com a foto. */
+.cst-rotulo { text-align: center; color: var(--foto-texto); transition: color var(--motion-base) var(--motion-ease); }
+.cst-rotulo b { font-weight: 600; }
+.cst-rotulo span { color: var(--foto-texto-meta); font-weight: 400; letter-spacing: .12em; }
+
+.cst-vazio {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: var(--s10);
+  text-align: center;
+  color: var(--foto-texto-meta);
+  font: 400 13px/1.6 var(--font-ui);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* ── faixa estreita ───────────────────────────────────────────────────────────
+   Abaixo de 900px a constelação não tem para onde se espalhar: vira rolagem em
+   coluna. Não é a mesma peça, mas entrega a mesma coisa — e é melhor que um
+   amontoado ilegível. */
+@media (max-width: 900px) {
+  .pagina-constelacao { overflow: auto; }
+  .cst-palco { min-height: auto; }
+
+  /* Três colunas numa faixa de 375px espremem o logo a zero e quebram o link em
+     três linhas. Aqui vira duas fileiras: identidade em cima, filtros embaixo. */
+  .cst-topo { grid-template-columns: auto 1fr; row-gap: var(--s15); padding: var(--s20); }
+  .cst-filtros { grid-column: 1 / -1; justify-content: flex-start; gap: 6px; }
+  .cst-pe { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 6px; }
+  .cst-pe-dir { text-align: center; }
+  .cst-marca { display: none; }
+  .cst-campo {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--s15);
+    padding: 0 var(--s20) var(--s30);
+  }
+  .cst-item {
+    position: relative;
+    left: auto; top: auto;
+    width: auto;
+    aspect-ratio: 3 / 2;
+    transform: none;
+    opacity: 1;
+    border-radius: var(--radius-control);
+  }
+  .cst-item:hover, .cst-item:focus-visible { transform: none; }
+  .cst-item img { filter: none; }
+  .cst-campo:has(.cst-item:hover) .cst-item:not(:hover) { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cst-marca { animation: none; }
+  .cst-item:hover img, .cst-item:focus-visible img { animation: none; }
+  .cst-item { transition: opacity var(--motion-base) var(--motion-ease); }
+}

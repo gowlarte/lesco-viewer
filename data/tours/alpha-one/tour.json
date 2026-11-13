@@ -1,0 +1,134 @@
+{
+  "slug": "alpha-one",
+  "obra": "Alpha One",
+  "cidade": "São Paulo",
+  "uf": "SP",
+  "tipo": "residencia",
+  "ano": 2026,
+  "escritorio": "Construcompany",
+  "linhas": [],
+  "apresentacao": "",
+  "publicado": true,
+  "capaCenaId": "c1",
+  "cenas": [
+    {
+      "id": "c1",
+      "nome": "Ambiente 1",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": -0.1933848915271479,
+        "pitch": -0.014554252843180637,
+        "fov": 100
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c2",
+      "nome": "Ambiente 2",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c3",
+      "nome": "Ambiente 3",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c4",
+      "nome": "Ambiente 4",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c5",
+      "nome": "Ambiente 5",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c6",
+      "nome": "Ambiente 6",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c7",
+      "nome": "Ambiente 7",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c8",
+      "nome": "Ambiente 8",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    },
+    {
+      "id": "c9",
+      "nome": "Ambiente 9",
+      "largura": 11904,
+      "altura": 5952,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [],
+      "temMedia": true
+    }
+  ],
+  "criadoEm": "2026-09-01T14:39:57.055Z",
+  "atualizadoEm": "2026-09-02T22:55:18.638Z"
+}

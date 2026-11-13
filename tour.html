@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tour 360 — Lesco</title>
+<!--META-->
+<link rel="icon" href="/app/assets/logo-lesco.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app/css/tokens.css">
+<link rel="stylesheet" href="/app/css/base.css">
+<link rel="stylesheet" href="/app/css/panorama.css">
+<link rel="stylesheet" href="/app/css/publico.css">
+<!--SLUG-->
+</head>
+<body>
+
+<div class="tour palco" id="palco">
+  <canvas id="tela" tabindex="0"
+    aria-label="Panorama do ambiente. Arraste para olhar em volta; use as setas do teclado para girar."></canvas>
+  <div class="camada-hs" id="camadaHs"></div>
+
+  <div class="veu veu-topo"></div>
+  <div class="veu veu-pe" id="veuPe"></div>
+
+  <header class="tour-topo" id="tourTopo" hidden>
+    <div class="tour-identidade">
+      <a class="logo logo-claro" href="/" style="--lw:82px" aria-label="Lesco — ver o acervo">
+        <img src="/app/assets/logo-lesco.png" alt="Lesco">
+      </a>
+      <div class="tour-titulo">
+        <b id="tourObra"></b>
+        <span id="tourLocal"></span>
+      </div>
+    </div>
+    <div class="tour-acoes">
+      <button class="ctrl" id="btFicha" title="Ficha da obra" aria-label="Ficha da obra" data-icone="info"></button>
+      <button class="ctrl" id="btGyro" title="Girar com o aparelho" aria-label="Girar com o aparelho" data-icone="bussola" hidden></button>
+      <button class="ctrl ctrl-vr" id="btVR" title="Ver no headset de realidade virtual" hidden>
+        <span data-icone="oculos"></span><span class="ctrl-vr-rotulo">VR</span>
+      </button>
+      <button class="ctrl" id="btCopiar" title="Copiar link desta vista" aria-label="Copiar link desta vista" data-icone="elo"></button>
+      <button class="ctrl" id="btTelaCheia" title="Tela cheia" aria-label="Tela cheia" data-icone="expandir"></button>
+    </div>
+  </header>
+
+  <div class="ctrl-grupo ctrl-canto" id="ctrlZoom" hidden>
+    <button class="ctrl" id="btMaisZoom" title="Aproximar" aria-label="Aproximar" data-icone="maisZoom"></button>
+    <button class="ctrl" id="btMenosZoom" title="Afastar" aria-label="Afastar" data-icone="menosZoom"></button>
+  </div>
+
+  <nav class="tira" id="tira" aria-label="Ambientes do tour" hidden></nav>
+
+  <div class="carregando" id="carregando">
+    <div class="eyebrow">CARREGANDO</div>
+    <div class="barra-marca"><i></i></div>
+  </div>
+
+  <div class="aviso-palco" id="avisoPalco" hidden>
+    <span data-icone="alerta" data-ic-tam="28"></span>
+    <p id="avisoPalcoTexto"></p>
+  </div>
+</div>
+
+<script type="module" src="/app/js/publico-tour.js"></script>
+</body>
+</html>
