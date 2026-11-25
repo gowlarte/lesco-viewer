@@ -1,0 +1,155 @@
+{
+  "slug": "residencial-curitiba",
+  "obra": "Residencial Curitiba",
+  "cidade": "Curitiba",
+  "uf": "PR",
+  "tipo": "resort",
+  "ano": 2026,
+  "escritorio": "ARQUITETARE",
+  "linhas": [
+    "brise"
+  ],
+  "apresentacao": "",
+  "publicado": true,
+  "capaCenaId": "c1",
+  "cenas": [
+    {
+      "id": "c1",
+      "nome": "Sala principal",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h1",
+          "tipo": "info",
+          "yaw": 0.06969455598588656,
+          "pitch": 0.10474940509198566,
+          "titulo": "Muxarabi",
+          "texto": "Ripas de Brise foram utilizadas para compor um muxarabi de 30x60"
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "nome": "Sala principal 2",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c3",
+      "nome": "Sala principal close",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c4",
+      "nome": "Pátio 1",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h2",
+          "tipo": "info",
+          "yaw": 0.6263625346361716,
+          "pitch": -0.03269784224725149,
+          "titulo": "Muxarabi",
+          "texto": "Estes painéis móveis podem ser realocados de acordo com a necessidade e posição do sol."
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "nome": "Pátio 2",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h3",
+          "tipo": "info",
+          "yaw": -0.6126453706392477,
+          "pitch": 0.015510263178699506,
+          "titulo": "Muxarabi",
+          "texto": "Estes painéis móveis podem ser realocados de acordo com a necessidade e posição do sol."
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "nome": "Pátio 3",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h4",
+          "tipo": "info",
+          "yaw": -0.09998960954486982,
+          "pitch": -0.04942954788420229,
+          "titulo": "Muxarabi",
+          "texto": "Estes painéis móveis podem ser realocados de acordo com a necessidade e posição do sol."
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "nome": "Pátio 4",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": [
+        {
+          "id": "h5",
+          "tipo": "info",
+          "yaw": 0.600256037134919,
+          "pitch": -0.03661487194348158,
+          "titulo": "Muxarabi",
+          "texto": "Estes painéis móveis podem ser realocados de acordo com a necessidade e posição do sol."
+        }
+      ]
+    }
+  ],
+  "criadoEm": "2026-11-23T20:16:51.555Z",
+  "atualizadoEm": "2026-11-23T20:26:46.717Z"
+}

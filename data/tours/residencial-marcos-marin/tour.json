@@ -1,6 +1,6 @@
 {
   "slug": "residencial-marcos-marin",
-  "obra": "Residencial Marcos Marin",
+  "obra": "Residencial Maringá",
   "cidade": "Maringá",
   "uf": "SC",
   "tipo": "residencia",
@@ -15,7 +15,7 @@
   "cenas": [
     {
       "id": "c1",
-      "nome": "Ambiente 1",
+      "nome": "Fachada",
       "largura": 11904,
       "altura": 5952,
       "temMedia": true,
@@ -28,7 +28,7 @@
     },
     {
       "id": "c2",
-      "nome": "Ambiente 2",
+      "nome": "Entrada",
       "largura": 11904,
       "altura": 5952,
       "temMedia": true,
@@ -41,7 +41,7 @@
     },
     {
       "id": "c3",
-      "nome": "Ambiente 3",
+      "nome": "Interno fechado",
       "largura": 11904,
       "altura": 5952,
       "temMedia": true,
@@ -50,11 +50,20 @@
         "pitch": 0,
         "fov": 76
       },
-      "hotspots": []
+      "hotspots": [
+        {
+          "id": "h1",
+          "tipo": "info",
+          "yaw": 0.739294047600537,
+          "pitch": 0.06289801064464356,
+          "titulo": "Brises pivotantes",
+          "texto": "Um sistema que abre e fecha foi instalado ao acionar um comando remotamente"
+        }
+      ]
     },
     {
       "id": "c4",
-      "nome": "Ambiente 4",
+      "nome": "Interno aberto",
       "largura": 11904,
       "altura": 5952,
       "temMedia": true,
@@ -63,9 +72,18 @@
         "pitch": 0,
         "fov": 76
       },
-      "hotspots": []
+      "hotspots": [
+        {
+          "id": "h2",
+          "tipo": "info",
+          "yaw": 0.7373514686509413,
+          "pitch": 0.0800089185118007,
+          "titulo": "Brises pivotantes",
+          "texto": "Um sistema que abre e fecha foi instalado ao acionar um comando remotamente"
+        }
+      ]
     }
   ],
   "criadoEm": "2026-10-27T13:15:11.680Z",
-  "atualizadoEm": "2026-10-27T17:16:32.916Z"
+  "atualizadoEm": "2026-11-23T20:35:17.270Z"
 }

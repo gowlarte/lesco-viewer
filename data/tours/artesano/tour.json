@@ -220,6 +220,19 @@
       "hotspots": []
     },
     {
+      "id": "c17",
+      "nome": "Ambiente 17",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
       "id": "c18",
       "nome": "Ambiente 18",
       "largura": 11904,
@@ -244,99 +257,8 @@
         "fov": 76
       },
       "hotspots": []
-    },
-    {
-      "id": "c20",
-      "nome": "Ambiente 20",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c21",
-      "nome": "Ambiente 21",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c22",
-      "nome": "Ambiente 22",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c23",
-      "nome": "Ambiente 23",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c25",
-      "nome": "Ambiente 25",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c26",
-      "nome": "Ambiente 26",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c27",
-      "nome": "Ambiente 27",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
     }
   ],
   "criadoEm": "2026-10-23T22:08:39.057Z",
-  "atualizadoEm": "2026-10-23T22:17:07.934Z"
+  "atualizadoEm": "2026-11-24T20:12:36.486Z"
 }

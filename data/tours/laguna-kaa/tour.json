@@ -1,0 +1,30 @@
+{
+  "slug": "laguna-kaa",
+  "obra": "Laguna KAA",
+  "cidade": "Curitiba",
+  "uf": "PR",
+  "tipo": "resort",
+  "ano": 2026,
+  "escritorio": "Bernardes Arquitetura",
+  "linhas": [],
+  "apresentacao": "",
+  "publicado": true,
+  "capaCenaId": "c1",
+  "cenas": [
+    {
+      "id": "c1",
+      "nome": "Principal",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    }
+  ],
+  "criadoEm": "2026-11-23T22:02:45.251Z",
+  "atualizadoEm": "2026-11-23T22:24:43.821Z"
+}

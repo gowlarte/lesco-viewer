@@ -1,16 +1,42 @@
 {
-  "slug": "alphaville-pinhais-residencia-muxarabi",
-  "obra": "Alphaville Pinhais - Residência Muxarabi",
-  "cidade": "Curitiba",
+  "slug": "casa-campo-largo",
+  "obra": "Casa Campo Largo",
+  "cidade": "Campo Largo",
   "uf": "PR",
   "tipo": "resort",
   "ano": 2026,
-  "escritorio": "Arquitetare",
+  "escritorio": "ARQUITETARE",
   "linhas": [],
   "apresentacao": "",
-  "publicado": false,
+  "publicado": true,
   "capaCenaId": "c1",
   "cenas": [
+    {
+      "id": "c8",
+      "nome": "Frente",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
+    {
+      "id": "c5",
+      "nome": "Principal",
+      "largura": 11904,
+      "altura": 5952,
+      "temMedia": true,
+      "vistaInicial": {
+        "yaw": 0,
+        "pitch": 0,
+        "fov": 76
+      },
+      "hotspots": []
+    },
     {
       "id": "c1",
       "nome": "Ambiente 1",
@@ -25,21 +51,8 @@
       "hotspots": []
     },
     {
-      "id": "c2",
-      "nome": "Ambiente 2",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
       "id": "c3",
-      "nome": "Ambiente 3",
+      "nome": "Garagem",
       "largura": 11904,
       "altura": 5952,
       "temMedia": true,
@@ -52,33 +65,7 @@
     },
     {
       "id": "c4",
-      "nome": "Ambiente 4",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c5",
-      "nome": "Ambiente 5",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c6",
-      "nome": "Ambiente 6",
+      "nome": "Acesso interno",
       "largura": 11904,
       "altura": 5952,
       "temMedia": true,
@@ -91,20 +78,7 @@
     },
     {
       "id": "c7",
-      "nome": "Ambiente 7",
-      "largura": 11904,
-      "altura": 5952,
-      "temMedia": true,
-      "vistaInicial": {
-        "yaw": 0,
-        "pitch": 0,
-        "fov": 76
-      },
-      "hotspots": []
-    },
-    {
-      "id": "c8",
-      "nome": "Ambiente 8",
+      "nome": "Sacada",
       "largura": 11904,
       "altura": 5952,
       "temMedia": true,
@@ -116,6 +90,6 @@
       "hotspots": []
     }
   ],
-  "criadoEm": "2026-11-12T20:53:03.630Z",
-  "atualizadoEm": "2026-11-12T20:53:32.055Z"
+  "criadoEm": "2026-11-24T17:52:23.803Z",
+  "atualizadoEm": "2026-11-24T18:01:33.978Z"
 }
